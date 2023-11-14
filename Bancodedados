@@ -1,0 +1,19 @@
+const MongoClient = require('mongodb').MongoClient;
+
+// URL de conexão com o MongoDB. Substitua 'sua_url_de_conexao' pelo URL correto.
+const url = 'sua_url_de_conexao';
+
+// Tenta conectar ao banco de dados
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, db) => {
+  if (err) {
+    // Se houver um erro, exibe a mensagem de erro
+    console.error('Erro ao conectar ao banco de dados:', err);
+    return;
+  }
+
+  // Se a conexão for bem-sucedida, exibe uma mensagem positiva
+  console.log('Conexão com o banco de dados bem-sucedida!');
+
+  // Fecha a conexão após o uso (é importante fechar a conexão quando não for mais necessária)
+  db.close();
+});
